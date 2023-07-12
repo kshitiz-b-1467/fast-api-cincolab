@@ -3,9 +3,9 @@ from datetime import datetime
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 
-from app import schemas, models
+from app import schemas
 from app.const import DEFAULT_SKIP, DEFAULT_LIMIT, UTC_DATE_TIME_FORMAT, STATUS
-from app.database import get_db, engine
+from app.database import get_db
 from app.operations import TableOperations, UserOperations
 from app.utils import health_check_response
 
@@ -13,7 +13,6 @@ app = FastAPI()
 
 user_ops = UserOperations()
 table_ops = TableOperations()
-models.Base.metadata.create_all(bind=engine)
 
 
 @app.post("/users/", response_model=schemas.User)
