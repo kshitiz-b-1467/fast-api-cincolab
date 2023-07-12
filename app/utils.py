@@ -46,8 +46,12 @@ class HttpStatus:
     }
 
 
-def health_check_response(status, timestamp):
+def health_check_response(status, timestamp, total_rows, total_tables):
     return {
         "timestamp": timestamp,
         "status": status,
+        "database": {
+            "totalRows": total_rows,
+            "totalTables": total_tables,
+        },
     }
