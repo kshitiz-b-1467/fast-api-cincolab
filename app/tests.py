@@ -1,8 +1,9 @@
 import pytest
 from fastapi.testclient import TestClient
 from app.main import app
-from app.const import  STATUS
- 
+from app.const import STATUS
+
+
 @pytest.fixture(scope="module")
 def test_client():
     """
@@ -23,5 +24,4 @@ def test_read_root(test_client: TestClient):
     response_data = response.json()
     assert "timestamp" in response_data
     assert "status" in response_data
-    assert response_data['status'] == STATUS.HTTP_200_OK['message']
-    
+    assert response_data["status"] == STATUS.HTTP_200_OK["message"]
