@@ -12,6 +12,7 @@ pytest = "*"
 httpx = "*"
 alembic = "*"
 python-dotenv = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
